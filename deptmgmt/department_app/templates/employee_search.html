@@ -1,0 +1,15 @@
+<!-- employee_search.html -->
+<h1>Search Departments</h1>
+<form method="get" action="{% url 'employee_search' %}">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+
+<h2>Results</h2>
+<ul>
+    {% for department in results %}
+        <li>{{ department.name }}: {{ department.description }}</li>
+    {% empty %}
+        <li>No departments found.</li>
+    {% endfor %}
+</ul>

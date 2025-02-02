@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4 text-center">Employee Dashboard</h2>
+  <div class="row">
+    {% for dept in departments %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ dept.dept_name }}</h5>
+            <p class="card-text">{{ dept.description }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Created on: {{ dept.created_at|date:"Y-m-d" }}</small>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center">No departments available.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

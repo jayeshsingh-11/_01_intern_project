@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mt-4">Departments</h2>
+<div class="row">
+  <!-- Loop through each active department and display it in a card format -->
+  {% for dept in departments %}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ dept.dept_name }}</h5>
+        <p class="card-text">{{ dept.description }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Created: {{ dept.created_at|date:"Y-m-d" }}</small>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>No departments available.</p>
+  {% endfor %}
+</div>
+{% endblock %}
